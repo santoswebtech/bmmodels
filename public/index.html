@@ -133,6 +133,10 @@
         align-items: end;
       }
 
+      .hero-copy {
+        grid-column: 1 / -1;
+      }
+
       .eyebrow {
         margin: 0 0 18px;
         color: var(--accent);
@@ -144,7 +148,6 @@
 
       h1 {
         margin: 0;
-        max-width: 760px;
         font-size: clamp(3.3rem, 6vw, 7rem);
         line-height: 0.82;
         letter-spacing: -0.085em;
@@ -650,6 +653,12 @@
         }
       }
 
+      @media (min-width: 721px) {
+        .hero-copy {
+          grid-column: 1 / -1;
+        }
+      }
+
       @media (max-width: 720px) {
         .header-button {
           min-width: 0;
@@ -678,7 +687,7 @@
     <main class="page-shell">
       <section class="hero">
         <div class="container hero-grid">
-          <div>
+          <div class="hero-copy">
             <p class="eyebrow">Model Career Development &amp; Media</p>
             <h1>Build a stronger brand.<br />Build a stronger career.</h1>
             <p class="lead">
