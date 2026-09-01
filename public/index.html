@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blue Media Enterprises | Model Career Development</title>
+    <meta name="description" content="Blue Media Enterprises supports models and creators with branding, media production, visibility, and career-building opportunities." />
+    <style>
+      :root {
+        --bg: #020d18;
+        --bg-deep: #000d18;
+        --panel: rgba(13, 22, 34, 0.9);
+        --panel-soft: rgba(17, 28, 38, 0.8);
+        --panel-elevated: rgba(15, 26, 38, 0.94);
+        --line: rgba(160, 185, 212, 0.18);
+        --line-strong: rgba(160, 185, 212, 0.28);
+        --text: #eef6ff;
+        --muted: #bfd0e5;
+        --accent: #77d9ff;
+        --accent-strong: #4ab5ff;
+        --accent-soft: rgba(119, 217, 255, 0.14);
+        --button-text: #07151d;
+        --shadow: 0 32px 80px rgba(0, 0, 0, 0.52);
+        --shadow-soft: 0 18px 40px rgba(3, 10, 17, 0.34);
+      }
+
+      * { box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top, rgba(82, 146, 214, 0.18), transparent 28%),
+          radial-gradient(circle at 82% 20%, rgba(74, 181, 255, 0.12), transparent 22%),
+          linear-gradient(180deg, #020d18 0%, #041420 35%, #061a2a 100%);
+        color: var(--text);
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+        line-height: 1.5;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+        background-size: 28px 28px;
+        mask-image: radial-gradient(circle at center, black 35%, transparent 95%);
+        pointer-events: none;
+      }
+
+      a { color: inherit; text-decoration: none; }
+
+      .container {
+        width: min(1160px, calc(100% - 44px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: relative;
+        z-index: 2;
+        border-bottom: 1px solid var(--line);
+        background: rgba(3, 12, 20, 0.8);
+        backdrop-filter: blur(10px);
+      }
+
+      .topbar-inner {
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand-square {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+        color: #061824;
+        font-weight: 900;
+        letter-spacing: 0.09em;
+      }
+
+      .brand-copy {
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 0.8rem;
+        font-weight: 800;
+      }
+
+      .header-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 170px;
+        min-height: 46px;
+        padding: 0 20px;
+        border-radius: 999px;
+        border: 1px solid rgba(143, 176, 211, 0.38);
+        background: rgba(12, 20, 30, 0.22);
+        color: var(--text);
+        font-size: 0.72rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .page-shell {
+        position: relative;
+        padding: 34px 0 48px;
+      }
+
+      .hero {
+        padding-top: 6px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.18fr 0.82fr;
+        gap: 30px;
+        align-items: end;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--accent);
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.26em;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 760px;
+        font-size: clamp(3.3rem, 6vw, 7rem);
+        line-height: 0.82;
+        letter-spacing: -0.085em;
+        text-transform: uppercase;
+        font-weight: 900;
+        background: linear-gradient(135deg, #f7fbff 0%, #cfeeff 18%, #8ad7ff 38%, #5ec3ff 58%, #3799ff 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .lead {
+        margin: 26px 0 0;
+        max-width: 710px;
+        color: var(--muted);
+        font-size: clamp(1.08rem, 1.7vw, 1.35rem);
+        line-height: 1.42;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 34px;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 54px;
+        padding: 0 28px;
+        border-radius: 999px;
+        border: 1px solid rgba(132, 175, 220, 0.38);
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .primary-btn {
+        background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+        color: var(--button-text);
+        box-shadow: 0 18px 34px rgba(75, 181, 255, 0.22);
+      }
+
+      .secondary-btn {
+        background: rgba(12, 19, 29, 0.18);
+        color: var(--text);
+      }
+
+      .primary-btn:hover,
+      .secondary-btn:hover,
+      .header-button:hover {
+        transform: translateY(-2px);
+      }
+
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 42px;
+        max-width: 740px;
+      }
+
+      .stat {
+        min-height: 122px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(10, 19, 29, 0.44);
+        padding: 18px 18px 16px;
+      }
+
+      .stat-number {
+        font-size: clamp(2rem, 2.6vw, 2.7rem);
+        line-height: 1;
+        letter-spacing: -0.06em;
+        font-weight: 800;
+      }
+
+      .stat-label {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+        line-height: 1.35;
+      }
+
+      .showcase-panel {
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: linear-gradient(180deg, rgba(11, 22, 34, 0.92), rgba(4, 12, 20, 0.96));
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .window-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 18px 14px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(8, 16, 27, 0.85);
+      }
+
+      .window-title {
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      .traffic {
+        display: flex;
+        gap: 8px;
+      }
+
+      .traffic span {
+        display: block;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+      }
+
+      .traffic span:nth-child(1) { background: #ff6d6d; }
+      .traffic span:nth-child(2) { background: #f5d474; }
+      .traffic span:nth-child(3) { background: #70e6a0; }
+
+      .panel-body {
+        padding: 22px 20px 20px;
+      }
+
+      .panel-kicker {
+        margin: 0;
+        color: var(--accent);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-size: 0.68rem;
+        font-weight: 700;
+      }
+
+      .panel-highlight {
+        margin-top: 16px;
+        padding: 20px 18px 18px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(9, 17, 25, 0.7);
+      }
+
+      .panel-highlight p {
+        margin: 0;
+        font-size: clamp(2.1rem, 4vw, 3.2rem);
+        line-height: 0.9;
+        letter-spacing: -0.08em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+
+      .panel-list {
+        list-style: none;
+        padding: 0;
+        margin: 18px 0 0;
+        display: grid;
+        gap: 10px;
+      }
+
+      .panel-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .panel-list li::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 12px rgba(119, 217, 255, 0.9);
+      }
+
+      .content-section {
+        padding: 36px 0 0;
+      }
+
+      .section-card {
+        position: relative;
+        border: 1px solid var(--line-strong);
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(11, 20, 31, 0.88), rgba(6, 14, 22, 0.96));
+        box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255,255,255,0.04);
+        overflow: hidden;
+      }
+
+      .section-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto auto 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at top left, rgba(119, 217, 255, 0.12), transparent 34%);
+        pointer-events: none;
+      }
+
+      .section-inner {
+        position: relative;
+        z-index: 1;
+        padding: 40px clamp(20px, 3vw, 42px);
+      }
+
+      .section-kicker {
+        margin: 0 0 16px;
+        color: var(--accent);
+        font-size: 0.72rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .section-title {
+        margin: 0 0 18px;
+        font-size: clamp(2.1rem, 4vw, 3.5rem);
+        letter-spacing: -0.06em;
+        line-height: 0.98;
+      }
+
+      .section-copy {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        max-width: 980px;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 20px;
+        align-items: start;
+      }
+
+      .feature-list,
+      .offer-grid,
+      .pricing-grid {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .feature-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 15px 18px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: linear-gradient(180deg, rgba(9, 18, 27, 0.7), rgba(8, 15, 22, 0.9));
+        color: var(--muted);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .feature-item:hover,
+      .offer-card:hover,
+      .price-card:hover,
+      .approach-step:hover {
+        transform: translateY(-3px);
+        border-color: rgba(119, 217, 255, 0.32);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+      }
+
+      .feature-item::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 12px rgba(119, 217, 255, 0.7);
+        margin-top: 8px;
+        flex-shrink: 0;
+      }
+
+      .quote-box {
+        padding: 24px 24px 20px;
+        border: 1px solid rgba(119, 217, 255, 0.24);
+        border-radius: 20px;
+        background: linear-gradient(180deg, rgba(25, 42, 58, 0.7), rgba(10, 19, 27, 0.94));
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 22px 38px rgba(0,0,0,0.18);
+      }
+
+      .quote-box strong {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--accent);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+      }
+
+      .approach-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .approach-step {
+        padding: 20px 18px 18px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(9, 18, 27, 0.72), rgba(8, 14, 20, 0.92));
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(119, 217, 255, 0.14);
+        color: var(--accent);
+        font-weight: 800;
+        margin-bottom: 12px;
+      }
+
+      .approach-step h3 {
+        margin: 0 0 8px;
+        font-size: 1.08rem;
+        letter-spacing: -0.04em;
+      }
+
+      .approach-step p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .offer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .offer-card {
+        padding: 24px 20px 18px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(8, 17, 25, 0.68), rgba(7, 14, 20, 0.9));
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .offer-card h3 {
+        margin: 0 0 12px;
+        font-size: 1.12rem;
+        letter-spacing: -0.04em;
+      }
+
+      .offer-card ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 9px;
+        color: var(--muted);
+      }
+
+      .offer-card li {
+        position: relative;
+        padding-left: 16px;
+        line-height: 1.55;
+      }
+
+      .offer-card li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .price-card {
+        padding: 24px 18px 20px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(9, 18, 27, 0.72), rgba(7, 15, 22, 0.92));
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .price-card.featured {
+        border-color: rgba(119, 217, 255, 0.44);
+        background: linear-gradient(180deg, rgba(18, 31, 42, 0.92), rgba(8, 16, 25, 0.9));
+        box-shadow: 0 18px 36px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.04);
+      }
+
+      .price-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.08rem;
+        letter-spacing: -0.04em;
+      }
+
+      .price-card .amount {
+        font-size: clamp(2rem, 3vw, 2.6rem);
+        letter-spacing: -0.06em;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .price-card .meta {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.6;
+      }
+
+      .price-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 16px 0 0;
+        display: grid;
+        gap: 8px;
+        color: var(--muted);
+      }
+
+      .price-card li {
+        position: relative;
+        padding-left: 14px;
+        line-height: 1.45;
+      }
+
+      .price-card li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .billing-note {
+        margin-top: 20px;
+        padding: 16px 18px;
+        border: 1px solid rgba(119, 217, 255, 0.18);
+        border-radius: 14px;
+        color: var(--muted);
+        background: linear-gradient(180deg, rgba(11, 20, 28, 0.78), rgba(9, 16, 22, 0.9));
+      }
+
+      .payment-methods {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .payment-pill {
+        padding: 8px 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--text);
+        background: rgba(13, 23, 33, 0.5);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 0.68rem;
+        font-weight: 700;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .two-col,
+        .offer-grid,
+        .pricing-grid,
+        .approach-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .header-button {
+          min-width: 0;
+          padding: 0 18px;
+          letter-spacing: 0.12em;
+        }
+
+        .stats-row {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-row {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <main class="page-shell">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Model Career Development &amp; Media</p>
+            <h1>Build a stronger brand.<br />Build a stronger career.</h1>
+            <p class="lead">
+              Blue Media Enterprises helps models, creators, and emerging talent become more prepared,
+              visible, marketable, and connected through branding, media production, strategic guidance,
+              and opportunity development.
+            </p>
+
+            <div class="cta-row">
+              <a class="primary-btn" href="#ceo-profile">Explore Management</a>
+              <!-- <a class="secondary-btn" href="/Blue_Media_Enterprises_Talent_Management_Agreement.pdf" target="_blank" rel="noreferrer">Download PDF</a> -->
+            </div>
+
+            <div class="stats-row" aria-label="Key highlights">
+              <div class="stat">
+                <div class="stat-number">1-Year</div>
+                <div class="stat-label">Non-exclusive<br />Management</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number">Brand</div>
+                <div class="stat-label">Portfolio &amp; Visibility</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number">Global</div>
+                <div class="stat-label">Fashion Opportunity<br />Access</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="showcase-panel" aria-label="Blue Media overview panel">
+            <div class="window-header">
+              <div class="window-title">Blue Media</div>
+              <div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div>
+            </div>
+            <div class="panel-body">
+              <p class="panel-kicker">Professional Development</p>
+              <div class="panel-highlight">
+                <p>Career<br />Elevation</p>
+              </div>
+              <ul class="panel-list">
+                <li>Comp cards &amp; EPK</li>
+                <li>Runway prep</li>
+                <li>Media visibility</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="content-section" id="ceo-profile">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">CEO Profile</p>
+              <h2 class="section-title">Leadership built around preparation, visibility, and opportunity.</h2>
+              <div class="two-col">
+                <div>
+                  <p class="section-copy">
+                    <strong>Ijahlon Fields</strong> is the Founder and CEO of Blue Media Enterprises. He is a media executive,
+                    entrepreneur, author, creator, and mentor whose work centers on branding, media development,
+                    talent development, and business growth. His leadership approach emphasizes professionalism,
+                    preparation, consistency, visibility, and helping clients build stronger careers and brands through
+                    real-world opportunities and strategic relationships.
+                  </p>
+                  <p class="section-copy">
+                    Fields brings experience in entrepreneurship, leadership, media development, mentorship,
+                    entertainment, fashion, production, and business. His background includes work as an author and
+                    creator, including <em>Shadows of Ezra</em> and the film project <em>Mr. Time Traveler</em>, along with a
+                    foundation in International Business.
+                  </p>
+                </div>
+                <div class="quote-box">
+                  <strong>Blue Media Mission</strong>
+                  <p class="section-copy">
+                    The goal is not simply to book an appearance but to help talent improve presentation, build
+                    professional assets, gain credible exposure, and enter stronger rooms with better preparation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="model-approach">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">Model Development Approach</p>
+              <h2 class="section-title">A structured path from talent potential to professional visibility.</h2>
+              <div class="approach-grid">
+                <div class="approach-step">
+                  <div class="step-number">1</div>
+                  <h3>Build the brand</h3>
+                  <p>Strengthen presentation, image, positioning, and professional materials to create a sharper personal brand.</p>
+                </div>
+                <div class="approach-step">
+                  <div class="step-number">2</div>
+                  <h3>Create the assets</h3>
+                  <p>Develop comp cards, headshots, EPKs, photography, and video content that support model discovery and industry credibility.</p>
+                </div>
+                <div class="approach-step">
+                  <div class="step-number">3</div>
+                  <h3>Develop the talent</h3>
+                  <p>Provide runway preparation, coaching resources, consultations, and professional feedback to sharpen confidence and execution.</p>
+                </div>
+                <div class="approach-step">
+                  <div class="step-number">4</div>
+                  <h3>Create visibility</h3>
+                  <p>Pursue runway, media, interview, magazine, advertising, and content opportunities that expand professional reach.</p>
+                </div>
+                <div class="approach-step">
+                  <div class="step-number">5</div>
+                  <h3>Expand the network</h3>
+                  <p>Facilitate strategic introductions to agencies, brands, designers, media professionals, and other relevant industry resources.</p>
+                </div>
+                <div class="approach-step">
+                  <div class="step-number">6</div>
+                  <h3>Go global</h3>
+                  <p>Position qualified models for domestic and international opportunities when aligned with the model and the opportunity.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="what-we-offer">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">What We Offer</p>
+              <h2 class="section-title">Professional development, media assets, and career opportunities designed to elevate the model.</h2>
+              <div class="offer-grid">
+                <div class="offer-card">
+                  <h3>Professional Brand Assets</h3>
+                  <ul>
+                    <li>Comp card creation and revamps</li>
+                    <li>EPK / electronic press kit development</li>
+                    <li>Professional headshots</li>
+                    <li>Portfolio-building photo shoots</li>
+                    <li>Model biography and brand presentation support</li>
+                  </ul>
+                </div>
+                <div class="offer-card">
+                  <h3>Photo &amp; Video Production</h3>
+                  <ul>
+                    <li>Professional photography using Canon EOS Mark IV</li>
+                    <li>Runway photography and video capture</li>
+                    <li>Walking videos and promotional content</li>
+                    <li>Behind-the-scenes and social media content</li>
+                    <li>Select content direction and creative development</li>
+                  </ul>
+                </div>
+                <div class="offer-card">
+                  <h3>Runway &amp; Model Development</h3>
+                  <ul>
+                    <li>Runway placement opportunities</li>
+                    <li>Walking and coaching class connections</li>
+                    <li>Model preparation and professional feedback</li>
+                    <li>Designer-to-model matching</li>
+                    <li>Weekly brand consultations and career check-ins</li>
+                  </ul>
+                </div>
+                <div class="offer-card">
+                  <h3>Media &amp; Publicity</h3>
+                  <ul>
+                    <li>Podcast interview opportunities</li>
+                    <li>Radio interview opportunities</li>
+                    <li>Magazine placement opportunities</li>
+                    <li>Reality-show and media opportunities</li>
+                  </ul>
+                </div>
+                <div class="offer-card">
+                  <h3>Agency, Brand &amp; Advertising Access</h3>
+                  <ul>
+                    <li>Introductions to agencies and industry contacts</li>
+                    <li>Advertising, poster and promotional opportunities</li>
+                    <li>Brand ambassador and commercial work</li>
+                    <li>Billboard placement opportunities when available</li>
+                  </ul>
+                </div>
+                <div class="offer-card">
+                  <h3>National &amp; International Exposure</h3>
+                  <ul>
+                    <li>New York Fashion Week</li>
+                    <li>Miami Swim Week</li>
+                    <li>LA Fashion Week</li>
+                    <li>Atlanta Fashion Week</li>
+                    <li>London, Paris, Milan, Amsterdam, Berlin and Ireland</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="management">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">Pricing</p>
+              <h2 class="section-title">One-year, non-exclusive management and marketing support.</h2>
+              <p class="section-copy">
+                Every payment option covers one full year of non-exclusive talent management and marketing services,
+                including the career-development and media support outlined in this overview.
+              </p>
+
+              <div class="pricing-grid">
+                <div class="price-card featured">
+                  <h3>Priority / Platinum</h3>
+                  <div class="amount">$500</div>
+                  <div class="meta">Upfront payment<br />One flat payment</div>
+                  <ul>
+                    <li>Free basic website creation &amp; setup</li>
+                    <li>Includes 1 year of management + marketing</li>
+                  </ul>
+                </div>
+                <div class="price-card">
+                  <h3>Level 2</h3>
+                  <div class="amount">$150</div>
+                  <div class="meta">Per month<br />4 monthly payments · $600 total</div>
+                  <ul>
+                    <li>Free basic website creation &amp; setup</li>
+                    <li>Includes 1 year of management + marketing</li>
+                  </ul>
+                </div>
+                <div class="price-card">
+                  <h3>Level 3</h3>
+                  <div class="amount">$100</div>
+                  <div class="meta">Per month<br />6 monthly payments · $600 total</div>
+                  <ul>
+                    <li>Includes 1 year of management + marketing</li>
+                  </ul>
+                </div>
+                <div class="price-card">
+                  <h3>Level 4</h3>
+                  <div class="amount">$50</div>
+                  <div class="meta">Per month<br />12 monthly payments · $600 total</div>
+                  <ul>
+                    <li>$100 website creation down payment</li>
+                    <li>Includes 1 year of management + marketing</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="billing-note">
+                <strong>Management percentage:</strong> 15% management percentage applies only to Blue Media-booked gigs once the client has earned back the amount paid for management services. Gigs booked independently remain 100% the client’s money.
+              </div>
+
+              <div class="payment-methods" aria-label="Accepted payment methods">
+                <span class="payment-pill">Cash App</span>
+                <span class="payment-pill">Apple Pay</span>
+                <span class="payment-pill">Zelle</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
