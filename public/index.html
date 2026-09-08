@@ -647,6 +647,174 @@
         font-weight: 700;
       }
 
+      /* Editorial agency direction */
+      :root {
+        --bg: #111111;
+        --bg-deep: #090909;
+        --panel: #1b1b1b;
+        --panel-soft: #252525;
+        --panel-elevated: #2c2c2c;
+        --line: rgba(245, 241, 234, 0.17);
+        --line-strong: rgba(245, 241, 234, 0.3);
+        --text: #f5f1ea;
+        --muted: #b8b2a9;
+        --accent: #1647c7;
+        --accent-strong: #0b2d8b;
+        --violet: #1647c7;
+        --violet-strong: #0b2d8b;
+        --accent-soft: rgba(22, 71, 199, 0.1);
+        --button-text: #fffdf8;
+        --shadow: 0 22px 60px rgba(0, 0, 0, 0.42);
+        --shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      body::before { display: none; }
+      a { color: inherit; }
+      .container { width: min(1240px, calc(100% - 56px)); }
+      .topbar { display: block; border-bottom: 1px solid var(--line); background: rgba(17, 17, 17, 0.94); backdrop-filter: blur(12px); }
+      .topbar-inner { min-height: 78px; }
+      .brand { gap: 10px; }
+      .brand-square { width: 38px; height: 38px; border-radius: 0; background: var(--accent); color: #ffffff; box-shadow: none; font-family: Arial, Helvetica, sans-serif; }
+      .brand-copy { color: var(--text); font-family: Arial, Helvetica, sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; }
+      .header-button { min-width: 0; min-height: 38px; border-radius: 0; border-color: rgba(137, 169, 231, 0.52); background: linear-gradient(115deg, rgba(22, 71, 199, 0.22), rgba(137, 169, 231, 0.06)); color: var(--text); font-family: Arial, Helvetica, sans-serif; font-size: 0.66rem; }
+      .page-shell { padding: 0 0 76px; }
+
+      .hero { position: relative; min-height: 720px; display: flex; align-items: end; padding: 86px 0 54px; background: linear-gradient(90deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.7) 44%, rgba(5, 5, 5, 0.28) 100%), url("assets/blndGirlWindow.jpg") center 32% / cover; color: #f5f1ea; overflow: hidden; }
+      .hero::after { content: "NEW YORK / 2026"; position: absolute; right: 28px; top: 50%; color: rgba(255, 253, 248, 0.72); font: 700 0.65rem/1 Arial, Helvetica, sans-serif; letter-spacing: 0.2em; writing-mode: vertical-rl; }
+      .hero-grid { display: block; width: 100%; }
+      .hero-copy { max-width: 760px; }
+      .eyebrow { margin-bottom: 20px; color: #b8c9ff; font: 700 0.68rem/1.2 Arial, Helvetica, sans-serif; letter-spacing: 0.22em; }
+      h1 { max-width: 780px; background: linear-gradient(118deg, #f5f1ea 0%, #dbe5ff 46%, #7f9fe8 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; font-size: clamp(3.1rem, 7.1vw, 7.4rem); line-height: 0.86; letter-spacing: -0.075em; }
+      .lead { max-width: 600px; margin-top: 28px; color: rgba(245, 241, 234, 0.82); font-size: clamp(1.05rem, 1.5vw, 1.25rem); }
+      .cta-row { margin-top: 30px; }
+      .primary-btn, .secondary-btn { min-height: 50px; border-radius: 0; border-color: rgba(215, 226, 255, 0.72); font-family: Arial, Helvetica, sans-serif; letter-spacing: 0.14em; }
+      .primary-btn { background: linear-gradient(115deg, #1647c7, #3f70dc); color: #ffffff; box-shadow: none; }
+      .secondary-btn { background: linear-gradient(115deg, rgba(22, 71, 199, 0.2), rgba(137, 169, 231, 0.04)); color: #f5f1ea; }
+      .stats-row { max-width: 650px; margin-top: 38px; gap: 0; }
+      .stat { min-height: 96px; padding: 16px 18px; border-width: 1px 1px 1px 0; border-radius: 0; border-color: rgba(245, 241, 234, 0.28); background: rgba(0, 0, 0, 0.35); }
+      .stat:first-child { border-left-width: 1px; }
+      .stat-number { font-family: Arial, Helvetica, sans-serif; font-size: 1.85rem; letter-spacing: -0.05em; }
+      .stat-label { color: rgba(245, 241, 234, 0.68); font: 0.65rem/1.35 Arial, Helvetica, sans-serif; letter-spacing: 0.13em; }
+      .showcase-panel { display: none; }
+
+      .content-section { padding: 70px 0 0; }
+      #model-approach,
+      #what-we-offer,
+      #management {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        padding: 70px 0;
+        background:
+          linear-gradient(180deg, rgba(2, 10, 18, 0.82), rgba(2, 8, 14, 0.94)),
+          url("assets/nycSky.jpg") center / cover fixed;
+      }
+
+      #model-approach {
+        margin-top: 70px;
+      }
+
+      #model-approach::before,
+      #what-we-offer::before,
+      #management::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(90deg, rgba(2, 8, 14, 0.45), transparent 50%, rgba(2, 8, 14, 0.42));
+        pointer-events: none;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #model-approach,
+        #what-we-offer,
+        #management { background-attachment: scroll; }
+      }
+      .section-card { border-radius: 0; border-color: var(--line); background: var(--panel); box-shadow: var(--shadow-soft); }
+      .section-card::before { background: none; }
+      .section-inner { padding: 54px clamp(22px, 5vw, 70px); }
+      .section-kicker { margin-bottom: 14px; color: var(--accent); font: 700 0.67rem/1.2 Arial, Helvetica, sans-serif; letter-spacing: 0.2em; }
+      .section-title { max-width: 850px; margin-bottom: 24px; background: linear-gradient(118deg, #f5f1ea 0%, #dbe5ff 48%, #7f9fe8 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; font-size: clamp(2.3rem, 4.3vw, 4.3rem); line-height: 0.95; }
+      .section-copy { color: var(--muted); font-size: 1.05rem; }
+      .section-copy strong { color: var(--text); }
+      .quote-box, .feature-item, .approach-step, .offer-card, .price-card, .billing-note { border-radius: 0; border-color: var(--line); background: var(--panel-soft); box-shadow: none; }
+      .quote-box { border-left: 4px solid var(--accent); background: #202020; }
+      .quote-box strong { color: var(--accent); font: 700 0.67rem/1.2 Arial, Helvetica, sans-serif; }
+      .feature-item, .approach-step, .offer-card, .price-card { transition: transform 0.2s ease, background 0.2s ease; }
+      .feature-item:hover, .offer-card:hover, .price-card:hover, .approach-step:hover { border-color: var(--accent); background: #303030; box-shadow: none; }
+      .feature-item::before { border-radius: 0; background: var(--accent); box-shadow: none; }
+      .step-number { border-radius: 0; background: var(--accent); color: #fffdf8; font-family: Arial, Helvetica, sans-serif; }
+      .approach-step h3, .offer-card h3, .price-card h3 { font-size: 1.15rem; }
+      .offer-card li::before, .price-card li::before { border-radius: 0; background: var(--accent); }
+      .price-card.featured { border-color: var(--accent); background: #18254a; box-shadow: none; }
+      .price-card .amount { font-family: Arial, Helvetica, sans-serif; }
+      .payment-pill { border-radius: 0; border-color: var(--line); background: transparent; color: var(--text); font-family: Arial, Helvetica, sans-serif; }
+
+      .nyc-band { min-height: 290px; margin-top: 70px; padding: 54px clamp(22px, 5vw, 70px); display: flex; align-items: end; background: linear-gradient(90deg, rgba(5, 8, 16, 0.92), rgba(5, 8, 16, 0.35)), url("assets/timesSqr.jpg") center / cover; color: #f5f1ea; }
+      .nyc-band h2 { max-width: 600px; margin: 0; font-size: clamp(2.4rem, 5vw, 5.2rem); line-height: 0.9; letter-spacing: -0.07em; }
+      .nyc-band p { margin: 14px 0 0; font: 700 0.68rem/1.4 Arial, Helvetica, sans-serif; letter-spacing: 0.18em; text-transform: uppercase; }
+
+      .talent-images {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        padding-top: 16px;
+      }
+
+      .talent-image {
+        position: relative;
+        min-height: 520px;
+        overflow: hidden;
+        background: var(--panel);
+      }
+
+      .talent-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 520px;
+        object-fit: cover;
+        filter: saturate(0.82);
+        transition: transform 0.5s ease, filter 0.5s ease;
+      }
+
+      .talent-image:hover img {
+        transform: scale(1.025);
+        filter: saturate(1);
+      }
+
+      .talent-caption {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 54px 22px 20px;
+        background: linear-gradient(transparent, rgba(5, 5, 5, 0.82));
+        color: #f5f1ea;
+        font: 700 0.68rem/1.4 Arial, Helvetica, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 720px) {
+        .container { width: min(100% - 32px, 1240px); }
+        .topbar-inner { min-height: 68px; }
+        .hero { min-height: 720px; padding: 90px 0 30px; background-position: 62% center; }
+        .hero::after { right: 12px; }
+        .stats-row { grid-template-columns: 1fr; max-width: 250px; }
+        .stat, .stat:first-child { border-width: 1px 1px 0; }
+        .stat:last-child { border-bottom-width: 1px; }
+        .nyc-band { min-height: 380px; margin-top: 48px; }
+        .talent-images { grid-template-columns: 1fr; }
+        .talent-image, .talent-image img { min-height: 460px; }
+      }
+
       @media (max-width: 900px) {
         .hero-grid,
         .two-col,
@@ -687,8 +855,17 @@
     </style>
   </head>
   <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="#top" aria-label="Blue Media Enterprises home">
+          <span class="brand-square">BM</span>
+          <span class="brand-copy">Blue Media Enterprises</span>
+        </a>
+        <a class="header-button" href="#management">Talent management</a>
+      </div>
+    </header>
 
-    <main class="page-shell">
+    <main class="page-shell" id="top">
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
@@ -724,7 +901,6 @@
           <aside class="showcase-panel" aria-label="Blue Media overview panel">
             <div class="window-header">
               <div class="window-title">Blue Media</div>
-              <div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div>
             </div>
             <div class="panel-body">
               <p class="panel-kicker">Professional Development</p>
@@ -739,6 +915,24 @@
             </div>
           </aside>
         </div>
+      </section>
+
+      <section class="nyc-band" aria-label="Blue Media Enterprises in New York City">
+        <div class="container">
+          <h2>New York energy.<br />Global ambition.</h2>
+          <p>Based in New York City / Building the next point of view</p>
+        </div>
+      </section>
+
+      <section class="talent-images container" aria-label="Blue Media talent and city imagery">
+        <figure class="talent-image">
+          <img src="assets/grlMic.jpg" alt="Model portrait in sunglasses" />
+          <figcaption class="talent-caption">Presence</figcaption>
+        </figure>
+        <figure class="talent-image">
+          <img src="assets/sitLongHair.jpg" alt="Model seated in a studio setting" style="transform: scale(1.2);"/>
+          <figcaption class="talent-caption">Professional image</figcaption>
+        </figure>
       </section>
 
       <section class="content-section" id="ceo-profile">
