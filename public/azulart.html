@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Azul Art & Fashion House | Fashion • Art • Music Experiences</title>
+    <meta
+      name="description"
+      content="Azul Art & Fashion House creates international fashion, art, and music experiences through runway opportunities, networking, culture, and creative development."
+    />
+    <style>
+      :root {
+        --bg: #111111;
+        --bg-deep: #090909;
+        --panel: rgba(21, 21, 21, 0.96);
+        --panel-soft: rgba(31, 31, 31, 0.88);
+        --panel-elevated: rgba(40, 40, 40, 0.96);
+        --line: rgba(245, 241, 234, 0.17);
+        --line-strong: rgba(245, 241, 234, 0.3);
+        --text: #f5f1ea;
+        --muted: #b8b2a9;
+        --accent: #1647c7;
+        --accent-strong: #0b2d8b;
+        --violet: #1647c7;
+        --violet-strong: #0b2d8b;
+        --accent-soft: rgba(22, 71, 199, 0.12);
+        --button-text: #fffdf8;
+        --shadow: 0 22px 60px rgba(0, 0, 0, 0.42);
+        --shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      * { box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1240px, calc(100% - 56px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: relative;
+        z-index: 2;
+        border-bottom: 1px solid var(--line);
+        background: rgba(17, 17, 17, 0.94);
+        backdrop-filter: blur(12px);
+      }
+
+      .topbar-inner {
+        min-height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .brand-square {
+        width: 38px;
+        height: 38px;
+        border-radius: 0;
+        display: grid;
+        place-items: center;
+        background: var(--accent);
+        color: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      .brand-copy {
+        color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .nav-wrap {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .nav-links a {
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: var(--text);
+        outline: none;
+      }
+
+      .header-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+        min-height: 38px;
+        padding: 0 18px;
+        border-radius: 0;
+        border: 1px solid rgba(137, 169, 231, 0.52);
+        background: linear-gradient(115deg, rgba(22, 71, 199, 0.22), rgba(137, 169, 231, 0.06));
+        color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.66rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .page-shell {
+        position: relative;
+        padding: 0 0 76px;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 720px;
+        display: flex;
+        align-items: end;
+        padding: 86px 0 54px 20px;
+        color: #f5f1ea;
+        overflow: hidden;
+      }
+
+      .hero-slideshow {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+
+      .hero-slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        background-size: cover;
+        background-position: center;
+        transition: opacity 1.6s ease-in-out;
+      }
+
+      .hero-slide.active {
+        opacity: 1;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(90deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.7) 44%, rgba(5, 5, 5, 0.28) 100%);
+      }
+
+      .hero::after {
+        content: "GLOBAL FASHION • ART • MUSIC";
+        position: absolute;
+        right: 28px;
+        top: 50%;
+        z-index: 3;
+        color: rgba(255, 253, 248, 0.72);
+        font: 700 0.65rem/1 Arial, Helvetica, sans-serif;
+        letter-spacing: 0.2em;
+        writing-mode: vertical-rl;
+      }
+
+      .hero-grid {
+        position: relative;
+        z-index: 2;
+        display: block;
+        width: 100%;
+      }
+
+      .hero-copy {
+        max-width: 860px;
+      }
+
+      .eyebrow {
+        margin: 0 0 20px;
+        color: #b8c9ff;
+        font: 700 0.68rem/1.2 Arial, Helvetica, sans-serif;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 860px;
+        background: linear-gradient(118deg, #f5f1ea 0%, #dbe5ff 46%, #7f9fe8 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        font-size: clamp(3.1rem, 7.1vw, 7.4rem);
+        line-height: 0.86;
+        letter-spacing: -0.075em;
+        text-transform: uppercase;
+      }
+
+      .lead {
+        max-width: 660px;
+        margin: 28px 0 0;
+        color: rgba(245, 241, 234, 0.82);
+        font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 30px;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        padding: 0 24px;
+        border: 1px solid rgba(215, 226, 255, 0.72);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.7rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .primary-btn {
+        background: linear-gradient(115deg, #1647c7, #3f70dc);
+        color: #ffffff;
+      }
+
+      .secondary-btn {
+        background: linear-gradient(115deg, rgba(22, 71, 199, 0.2), rgba(137, 169, 231, 0.04));
+        color: #f5f1ea;
+      }
+
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0;
+        max-width: 650px;
+        margin-top: 38px;
+      }
+
+      .stat {
+        min-height: 96px;
+        padding: 16px 18px;
+        border: 1px solid rgba(245, 241, 234, 0.28);
+        border-left-width: 0;
+        background: rgba(0, 0, 0, 0.35);
+      }
+
+      .stat:first-child {
+        border-left-width: 1px;
+      }
+
+      .stat-number {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.85rem;
+        line-height: 1;
+        letter-spacing: -0.05em;
+        font-weight: 800;
+      }
+
+      .stat-label {
+        margin-top: 8px;
+        color: rgba(245, 241, 234, 0.68);
+        font: 700 0.65rem/1.35 Arial, Helvetica, sans-serif;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .content-section {
+        padding: 70px 0 0;
+      }
+
+      .section-card {
+        position: relative;
+        border: 1px solid var(--line-strong);
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(11, 20, 31, 0.88), rgba(6, 14, 22, 0.96));
+        box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255,255,255,0.04);
+        overflow: hidden;
+      }
+
+      .section-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto auto 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at top left, rgba(139, 107, 255, 0.18), transparent 28%), radial-gradient(circle at right center, rgba(119, 217, 255, 0.11), transparent 32%);
+        pointer-events: none;
+      }
+
+      .section-inner {
+        position: relative;
+        z-index: 1;
+        padding: 54px clamp(22px, 5vw, 70px);
+      }
+
+      .section-kicker {
+        margin: 0 0 16px;
+        color: var(--accent);
+        font: 700 0.67rem/1.2 Arial, Helvetica, sans-serif;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .section-title {
+        margin: 0 0 24px;
+        max-width: 850px;
+        background: linear-gradient(118deg, #f5f1ea 0%, #dbe5ff 48%, #7f9fe8 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        font-size: clamp(2.3rem, 4.3vw, 4.3rem);
+        line-height: 0.95;
+        letter-spacing: -0.06em;
+      }
+
+      .section-copy {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        max-width: 980px;
+      }
+
+      .section-copy strong {
+        color: var(--text);
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 20px;
+        align-items: start;
+      }
+
+      .feature-list,
+      .offer-grid,
+      .pricing-grid,
+      .blurb-grid {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .feature-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 15px 18px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: linear-gradient(180deg, rgba(9, 18, 27, 0.7), rgba(8, 15, 22, 0.9));
+        color: var(--muted);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+      }
+
+      .feature-item::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 12px rgba(119, 217, 255, 0.7);
+        margin-top: 8px;
+        flex-shrink: 0;
+      }
+
+      .quote-box {
+        padding: 24px 24px 20px;
+        border: 1px solid rgba(119, 217, 255, 0.24);
+        border-radius: 20px;
+        background: linear-gradient(180deg, rgba(25, 42, 58, 0.7), rgba(10, 19, 27, 0.94));
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 22px 38px rgba(0,0,0,0.18);
+      }
+
+      .quote-box strong {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--accent);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font: 700 0.7rem/1.2 Arial, Helvetica, sans-serif;
+      }
+
+      .offer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .offer-card {
+        padding: 24px 20px 18px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(8, 17, 25, 0.68), rgba(7, 14, 20, 0.9));
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+      }
+
+      .offer-card h3 {
+        margin: 0 0 12px;
+        font-size: 1.12rem;
+        letter-spacing: -0.04em;
+      }
+
+      .offer-card ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 9px;
+        color: var(--muted);
+      }
+
+      .offer-card li {
+        position: relative;
+        padding-left: 16px;
+        line-height: 1.55;
+      }
+
+      .offer-card li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .blurb-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .blurb-card {
+        padding: 22px 20px 18px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(9, 18, 27, 0.72), rgba(8, 14, 20, 0.92));
+      }
+
+      .blurb-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.08rem;
+        letter-spacing: -0.04em;
+      }
+
+      .blurb-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .callout {
+        margin-top: 30px;
+        padding: 20px 22px;
+        border: 1px solid rgba(119, 217, 255, 0.18);
+        border-radius: 14px;
+        color: var(--muted);
+        background: linear-gradient(180deg, rgba(11, 20, 28, 0.78), rgba(9, 16, 22, 0.9));
+      }
+
+      .callout strong {
+        color: var(--text);
+      }
+
+      .inline-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .inline-pill {
+        padding: 8px 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--text);
+        background: rgba(13, 23, 33, 0.5);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font: 700 0.68rem/1 Arial, Helvetica, sans-serif;
+      }
+
+      .site-footer {
+        border-top: 1px solid var(--line);
+        padding: 34px 0 38px;
+        background: #0b0b0b;
+      }
+
+      .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+      }
+
+      .footer-copy {
+        margin: 0;
+        color: var(--muted);
+        font: 700 0.66rem/1.4 Arial, Helvetica, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 42px;
+        padding: 0 14px;
+        border: 1px solid var(--line);
+        color: var(--text);
+        font: 700 0.66rem/1 Arial, Helvetica, sans-serif;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .social-icon {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+      }
+
+      @media (max-width: 900px) {
+        .topbar-inner {
+          flex-wrap: wrap;
+          justify-content: center;
+          padding: 12px 0;
+        }
+
+        .nav-wrap {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .two-col,
+        .offer-grid,
+        .blurb-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .container {
+          width: min(100% - 32px, 1240px);
+        }
+
+        .topbar-inner {
+          min-height: 68px;
+        }
+
+        .nav-wrap {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 12px;
+          text-align: center;
+        }
+
+        .nav-links {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .hero {
+          min-height: 720px;
+          padding: 90px 0 30px;
+          background-position: 62% center;
+        }
+
+        .hero::after {
+          right: 12px;
+        }
+
+        .stats-row {
+          grid-template-columns: 1fr;
+          max-width: 280px;
+        }
+
+        .stat, .stat:first-child {
+          border-width: 1px 1px 0;
+        }
+
+        .stat:last-child {
+          border-bottom-width: 1px;
+        }
+
+        .cta-row {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+          width: 100%;
+        }
+
+        .footer-inner {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .social-links,
+        .social-link {
+          width: 100%;
+        }
+
+        .social-link {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html" aria-label="Blue Media Enterprises home">
+          <span class="brand-square">BM</span>
+          <span class="brand-copy">Blue Media Enterprises</span>
+        </a>
+
+        <div class="nav-wrap">
+          <nav class="nav-links" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="azulart.html">Azul Art</a>
+            <a href="index.html#management">Talent Management</a>
+          </nav>
+          <a class="header-button" href="index.html#management">Talent management</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell" id="top">
+      <section class="hero" aria-label="Azul Art and Fashion House hero slideshow">
+        <div class="hero-slideshow" aria-hidden="true">
+          <div class="hero-slide active" style="background-image: url('assets/brooklyn.jpg');"></div>
+          <div class="hero-slide" style="background-image: url('assets/londonEye.jpg');"></div>
+          <div class="hero-slide" style="background-image: url('assets/louvre.jpg'); background-position: 0 30%;"></div>
+          <div class="hero-slide" style="background-image: url('assets/milanPrada.jpg');"></div>
+        </div>
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Global Fashion • Art • Music</p>
+            <h1>Azul Art &amp;<br />Fashion House</h1>
+            <p class="lead">
+              Travel. Fashion. Art. Music. Culture. Networking. Opportunity. Azul Art &amp; Fashion House creates international experiences that bring together models, designers, artists, musicians, photographers, actors, content creators, and fashion professionals during some of the world’s most exciting fashion and cultural periods.
+            </p>
+            <div class="cta-row">
+              <a class="primary-btn" href="#europe">Explore experiences</a>
+              <a class="secondary-btn" href="#why-azul">Why Azul</a>
+            </div>
+
+            <div class="stats-row" aria-label="Azul experience highlights">
+              <div class="stat">
+                <div class="stat-number">Free</div>
+                <div class="stat-label">Runway walking</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number">Global</div>
+                <div class="stat-label">City experiences</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number">3 Worlds</div>
+                <div class="stat-label">Fashion • art • music</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="overview">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">Our Experience</p>
+              <h2 class="section-title">Build confidence. Create relationships. Discover talent. Develop creativity. Build opportunities. Experience the world.</h2>
+              <div class="two-col">
+                <div>
+                  <p class="section-copy">
+                    Our experiences combine fashion shows, runway opportunities, castings, photography, art, music, live performances, content creation, podcast interviews, networking, sightseeing, workshops, nightlife, after-parties, and cultural experiences.
+                  </p>
+                  <p class="section-copy">
+                    Our goal is simple: cultivate visibility, strengthen creative communities, and provide a space for growth, connection, and opportunity across fashion, art, music, and culture.
+                  </p>
+                </div>
+                <div class="quote-box">
+                  <strong>Important</strong>
+                  <p class="section-copy">
+                    Walking in our Azul Art &amp; Fashion House runway is always <strong>FREE</strong>. There is no charge simply to walk in our runway opportunities.
+                  </p>
+                </div>
+              </div>
+
+              <div class="callout">
+                <strong>Travel packages:</strong> designed to provide accommodations, transportation, meals, activities, networking opportunities, and the complete Fashion • Art • Music experience. Participants who arrange their own accommodations can participate through our <strong>Activities-Only</strong> options where available.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="europe">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">Europe Global Experience</p>
+              <h2 class="section-title">London • Milan • Paris</h2>
+              <p class="section-copy">
+                <strong>February &amp; September experiences</strong><br />
+                Full 3-country experience — <strong>$1,200</strong>
+              </p>
+              <p class="section-copy">
+                Travel with Azul Art &amp; Fashion House through London, Milan, and Paris for one complete European Fashion • Art • Music experience. Your $1,200 package is designed to take you through all three cities while providing accommodations, transportation, meals, fashion activities, networking, photography, art experiences, music experiences, sightseeing, entertainment, and cultural experiences.
+              </p>
+
+              <div class="offer-grid">
+                <div class="offer-card">
+                  <h3>London</h3>
+                  <ul>
+                    <li>17th–21st</li>
+                    <li>Mansion-style accommodation</li>
+                    <li>Fashion, art, music, photo, networking, nightlife</li>
+                    <li>Castings, runway opportunities, collaborations</li>
+                  </ul>
+                </div>
+                <div class="offer-card">
+                  <h3>Milan</h3>
+                  <ul>
+                    <li>22nd–27th</li>
+                    <li>Hotel/Airbnb-style stay</li>
+                    <li>Designer opportunities, art, music, photography</li>
+                    <li>Sightseeing and runway experiences</li>
+                  </ul>
+                </div>
+                <div class="offer-card">
+                  <h3>Paris</h3>
+                  <ul>
+                    <li>28th–8th</li>
+                    <li>Hotel/Airbnb stays</li>
+                    <li>Runway, nightlife, art, networking, cultural events</li>
+                    <li>Additional fashion experiences and exposure</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="callout">
+                <strong>The $1,200 Europe package includes:</strong> London accommodations, Milan accommodations, Paris accommodations, transportation between countries, flights between participating countries, London Oyster/travel access, breakfast and lunch every day, fashion, art, music, sightseeing, photography, podcast interviews, runway opportunities, networking events, castings, music and entertainment networking, fashion parties, after-parties, content creation opportunities, and cultural experiences.
+              </div>
+
+              <div class="inline-list" aria-label="European pricing options">
+                <span class="inline-pill">All 3 Countries — $1,200</span>
+                <span class="inline-pill">London + Additional Travel — $1,000</span>
+                <span class="inline-pill">One-Week Stay — Starting at $800</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="miami">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">Miami Swim Week Experience</p>
+              <h2 class="section-title">Last two weeks of May</h2>
+              <p class="section-copy">
+                <strong>Fashion • Art • Music • Content</strong><br />
+                Azul Art &amp; Fashion House brings models, designers, artists, musicians, photographers, and creatives together in Miami for a two-week experience.
+              </p>
+
+              <div class="blurb-grid">
+                <div class="blurb-card">
+                  <h3>Week One — Content &amp; Creative Week</h3>
+                  <p>Professional photo shoots, video shoots, reels, fashion content, art and creative projects, music collaborations, skits, podcast interviews, networking, model development, artist development, castings, fittings, creative collaborations, sightseeing, nightlife and networking events.</p>
+                </div>
+                <div class="blurb-card">
+                  <h3>Week Two — Fashion Show Week</h3>
+                  <p>Our primary runway events take place on Friday and Saturday of the final week of May, with designer showcases, art showcases, music performances, photography, red carpet opportunities, networking, castings for additional shows, parties, music events, and after-parties.</p>
+                </div>
+              </div>
+
+              <div class="callout">
+                <strong>Miami pricing:</strong> Model House / Shared Accommodation — <strong>$650</strong>, Private Room — <strong>$800</strong>, Activities Only — <strong>$250</strong>. Walking in our runway opportunities remains FREE. You can choose either a one-week or two-week option.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="nyfw">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">New York Fashion Week Experience</p>
+              <h2 class="section-title">September 10–15</h2>
+              <p class="section-copy">
+                <strong>Fashion • Art • Music • Culture</strong><br />
+                Experience New York Fashion Week with Azul Art &amp; Fashion House. Our NYFW experience is designed to give models, designers, artists, musicians, photographers, and creatives an opportunity to experience the industry from multiple angles — from runway shows and castings to photography, art, music, networking, content creation, and fashion events.
+              </p>
+
+              <div class="offer-grid">
+                <div class="offer-card">
+                  <h3>$500 — Model House Package</h3>
+                  <ul>
+                    <li>Bed in the model house</li>
+                    <li>Living accommodations</li>
+                    <li>Access to NYFW activities</li>
+                    <li>Fashion networking and art/music experiences</li>
+                    <li>Photography, content creation, castings, runway opportunities</li>
+                    <li>Breakfast and lunch during the stay</li>
+                  </ul>
+                </div>
+                <div class="offer-card">
+                  <h3>$350 — Model House Bed Package</h3>
+                  <ul>
+                    <li>A bed in the model house</li>
+                    <li>Access to the activities available during the experience</li>
+                    <li>Movement within the experience schedule</li>
+                  </ul>
+                </div>
+                <div class="offer-card">
+                  <h3>$250 — Activities Only</h3>
+                  <ul>
+                    <li>For models and creatives staying elsewhere</li>
+                    <li>Access to Azul activities and events</li>
+                    <li>Participation without lodging</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="callout">
+                <strong>Again — walking is free.</strong> There is no fee simply to walk our runway opportunities. The accommodation and activity fees are for the experience, housing, meals, networking, activities, transportation/support, and other services provided during the trip.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="atlanta">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">Atlanta Fashion Week Experience</p>
+              <h2 class="section-title">Week of July 18</h2>
+              <p class="section-copy">
+                <strong>Fashion • Art • Music</strong><br />
+                Experience Atlanta Fashion Week with Azul Art &amp; Fashion House. Our Atlanta experience combines fashion, art, music, networking, photography, runway opportunities, content creation, castings, entertainment, and community.
+              </p>
+
+              <div class="offer-grid">
+                <div class="offer-card">
+                  <h3>$500 — Full Experience</h3>
+                  <ul>
+                    <li>Living accommodations</li>
+                    <li>Access to Atlanta Fashion Week activities</li>
+                    <li>Fashion networking, art and music experiences</li>
+                    <li>Photography, content creation, castings</li>
+                    <li>Runway opportunities and after-parties</li>
+                    <li>Breakfast and lunch during the stay</li>
+                  </ul>
+                </div>
+                <div class="offer-card">
+                  <h3>$750 — Private Room</h3>
+                  <ul>
+                    <li>Private accommodation</li>
+                    <li>Full experience access</li>
+                    <li>Enhanced comfort for the event week</li>
+                  </ul>
+                </div>
+                <div class="offer-card">
+                  <h3>$250 — Activities Only</h3>
+                  <ul>
+                    <li>For participants with their own accommodations</li>
+                    <li>Access to Azul Art &amp; Fashion House activities</li>
+                    <li>Event participation without housing</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="callout">
+                Walking in our runway opportunities is <strong>FREE</strong>.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="why-azul">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">The Azul Experience</p>
+              <h2 class="section-title">Fashion • Art • Music</h2>
+              <div class="blurb-grid">
+                <div class="blurb-card">
+                  <h3>Fashion</h3>
+                  <p>Runways, designers, models, fittings, castings, fashion shows, styling, photography, fashion networking, and industry connections.</p>
+                </div>
+                <div class="blurb-card">
+                  <h3>Art</h3>
+                  <p>Creative expression, visual art, artistic collaborations, photography, design, creative workshops, cultural experiences, and opportunities for artists to showcase their work.</p>
+                </div>
+                <div class="blurb-card">
+                  <h3>Music</h3>
+                  <p>Artists, musicians, performances, music collaborations, entertainment events, podcast interviews, music-industry networking, nightlife, and opportunities to connect with other creatives.</p>
+                </div>
+                <div class="blurb-card">
+                  <h3>Photography &amp; Content</h3>
+                  <p>Professional photography, video shoots, reels, interviews, behind-the-scenes content, skits, creative collaborations, and portfolio development.</p>
+                </div>
+                <div class="blurb-card">
+                  <h3>Podcasts &amp; Interviews</h3>
+                  <p>Opportunities to introduce yourself, your brand, your story, your art, your music, and your work to new audiences.</p>
+                </div>
+                <div class="blurb-card">
+                  <h3>Networking</h3>
+                  <p>Meet models, designers, photographers, artists, musicians, producers, performers, content creators, fashion professionals, and other creatives.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="mission">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">Why Azul Art &amp; Fashion House?</p>
+              <h2 class="section-title">We believe fashion is about more than a runway.</h2>
+              <div class="two-col">
+                <div>
+                  <p class="section-copy">
+                    Art is more than a canvas. Music is more than a song. And creativity is more powerful when people come together. Our experiences are designed to help people build confidence, build relationships, build experience, create, connect, travel, discover, and grow.
+                  </p>
+                  <p class="section-copy">
+                    Whether you’re walking your first runway, building your portfolio, launching a clothing brand, creating music, showcasing your artwork, developing your career, creating content, or looking for your next opportunity, Azul Art &amp; Fashion House is designed to give you a space to build and create.
+                  </p>
+                </div>
+                <div class="quote-box">
+                  <strong>One House. One Experience.</strong>
+                  <p class="section-copy">
+                    Three creative worlds.<br />
+                    Fashion • Art • Music<br />
+                    Tokyo • London • Milan • Paris • Miami • New York • Atlanta
+                  </p>
+                </div>
+              </div>
+
+              <div class="callout">
+                Walk the runway. Create art. Make music. Build your portfolio. Network. Travel. Experience the world.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="footer-copy">Blue Media Enterprises / Stay connected</p>
+        <nav class="social-links" aria-label="Social media links">
+          <a class="social-link" href="https://www.instagram.com/bluemediany/" target="_blank" rel="noreferrer" aria-label="Follow Blue Media NY on Instagram">
+            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0-3-3Z"/>
+            </svg>
+            @bluemediany
+          </a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        const slides = Array.from(document.querySelectorAll('.hero-slide'));
+        if (!slides.length) return;
+
+        let currentIndex = 0;
+
+        setInterval(function () {
+          slides[currentIndex].classList.remove('active');
+          currentIndex = (currentIndex + 1) % slides.length;
+          slides[currentIndex].classList.add('active');
+        }, 4000);
+      })();
+    </script>
+  </body>
+</html>

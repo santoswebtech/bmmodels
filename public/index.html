@@ -104,6 +104,26 @@
         font-weight: 800;
       }
 
+      .nav-inline {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .nav-link {
+        color: var(--muted);
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 700;
+        transition: color 0.2s ease;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus-visible {
+        color: var(--text);
+      }
+
       .header-button {
         display: inline-flex;
         align-items: center;
@@ -1002,7 +1022,10 @@
           <span class="brand-square">BM</span>
           <span class="brand-copy">Blue Media Enterprises</span>
         </a>
-        <a class="header-button" href="#management">Talent management</a>
+        <div class="nav-inline">
+          <a class="nav-link" href="azulart.html">Azul Art</a>
+          <a class="header-button" href="#management">Talent management</a>
+        </div>
       </div>
     </header>
 
