@@ -514,33 +514,43 @@
 
       .package-selector {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(260px, 0.7fr);
-        gap: 24px;
-        align-items: end;
+        gap: 18px;
         margin: 28px 0;
         padding: 22px 0;
         border-top: 1px solid var(--line);
         border-bottom: 1px solid var(--line);
       }
 
-      .package-selector label {
-        display: block;
-        margin-bottom: 8px;
-        color: var(--text);
-        font: 700 0.7rem/1.3 Arial, Helvetica, sans-serif;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
+      .package-option-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
       }
 
-      .package-selector select {
-        width: 100%;
-        min-height: 50px;
-        padding: 0 42px 0 14px;
+      .package-option {
+        appearance: none;
         border: 1px solid var(--line-strong);
-        border-radius: 0;
-        background: #111;
+        background: rgba(17, 24, 29, 0.9);
         color: var(--text);
-        font: 700 0.85rem/1.3 Arial, Helvetica, sans-serif;
+        padding: 12px 18px;
+        font: 700 0.8rem/1.2 Arial, Helvetica, sans-serif;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      }
+
+      .package-option:hover,
+      .package-option:focus-visible {
+        border-color: rgba(119, 217, 255, 0.8);
+        background: rgba(22, 32, 39, 0.96);
+        outline: none;
+      }
+
+      .package-option.active {
+        background: linear-gradient(180deg, rgba(130, 173, 220, 0.22), rgba(100, 130, 174, 0.14));
+        border-color: rgba(119, 217, 255, 0.9);
+        box-shadow: inset 0 0 0 1px rgba(119, 217, 255, 0.18);
       }
 
       .package-panel[hidden] {
@@ -856,53 +866,156 @@
         <div class="container">
           <p class="section-kicker">Blue Media Global Takeover</p>
           <h2 class="section-title">One city. Three cities. Or the Five-City Big Bang.</h2>
-          <p class="section-copy">Choose your season, your city, and your experience. February/Fall-Winter and September/Spring-Summer options are available where applicable. The package price stays the same.</p>
+          <p class="section-copy">Choose your season, your city, and your experience. February/Fall-Winter and September/Spring-Summer options are available where applicable.</p>
 
           <div class="package-selector">
-            <div>
-              <label for="package-select">Choose a trip package</label>
-              <select id="package-select" aria-controls="package-details">
-                <option value="individual">Individual city</option>
-                <option value="three-city">Three-City Tour</option>
-                <option value="five-city">Five-City Big Bang</option>
-              </select>
+            <div class="package-option-row" role="tablist" aria-label="Trip package options">
+              <button type="button" class="package-option" data-package="three-city" aria-pressed="false">Three-City Tour</button>
+              <button type="button" class="package-option" data-package="five-city" aria-pressed="false">Five-City Big Bang</button>
+              <button type="button" class="package-option" data-package="london" aria-pressed="false">London</button>
+              <button type="button" class="package-option" data-package="milan" aria-pressed="false">Milan</button>
+              <button type="button" class="package-option" data-package="paris" aria-pressed="false">Paris</button>
+              <button type="button" class="package-option" data-package="tokyo" aria-pressed="false">Tokyo</button>
+              <button type="button" class="package-option active" data-package="new-york" aria-pressed="true">New York</button>
             </div>
             <p class="section-copy">Your selection opens the package details, pricing, deposit, cities, and experience options.</p>
           </div>
 
           <div id="package-details" aria-live="polite">
-            <section class="section-card package-panel" id="package-individual" aria-labelledby="individual-title">
+            <section class="section-card package-panel" id="package-london" aria-labelledby="london-title" hidden>
               <div class="section-inner">
-                <p class="section-kicker">Individual City Options</p>
-                <h2 class="section-title" id="individual-title">Choose one city</h2>
-                <p class="section-copy">Don’t want to do the full tour? Choose one city for approximately one week. Basic is $800; Exclusive is $1,000.</p>
-                <div class="package-city-grid">
-                  <article class="package-city">
-                    <h3>🇬🇧 London</h3>
-                    <p><strong>Basic — $800</strong> · <strong>Exclusive — $1,000</strong></p>
-                    <p>Exclusive adds London + Manchester experiences and transportation opportunities.</p>
+                <p class="section-kicker">Individual City · London</p>
+                <h2 class="section-title" id="london-title">🇬🇧 London</h2>
+                <p class="package-price">London experience — $800</p>
+                <p class="section-copy"><strong>Winter:</strong> Feb. 17–24<br /><strong>Spring:</strong> Sep. 17–24</p>
+                <p class="section-copy">LFW + castings + independent runways + fashion parties + interviews + radio + networking + museums + nightlife + photoshoots + More.</p>
+                <div class="callout"><strong>Basic deposit: $250</strong><br />Living accommodation and flight are not included.</div>
+              </div>
+            </section>
+
+            <section class="section-card package-panel" id="package-milan" aria-labelledby="milan-title" hidden>
+              <div class="section-inner">
+                <p class="section-kicker">Individual City · Milan</p>
+                <h2 class="section-title" id="milan-title">🇮🇹 Milan</h2>
+                <p class="package-price">Milan experience — $800</p>
+                <p class="section-copy"><strong>Winter:</strong> Feb. 24–Mar. 3<br /><strong>Spring:</strong> Sep. 24–30</p>
+                <p class="section-copy">Milan Fashion Week + designer showcases + brand activations + Esxence + castings + nightlife + media + photoshoots + shopping + city tours + More.</p>
+                <div class="callout"><strong>Basic deposit: $250</strong><br />Living accommodation and flight are not included.</div>
+              </div>
+            </section>
+
+            <section class="section-card package-panel" id="package-paris" aria-labelledby="paris-title" hidden>
+              <div class="section-inner">
+                <p class="section-kicker">Individual City · Paris</p>
+                <h2 class="section-title" id="paris-title">🇫🇷 Paris</h2>
+                <p class="package-price">Paris experience — $800</p>
+                <p class="section-copy"><strong>Winter:</strong> Mar. 3–10<br /><strong>Spring:</strong> Oct. 1–8</p>
+                <p class="section-copy">Paris Fashion Week + independent shows + castings + designer events + fashion networking + media + photoshoots + museums + sightseeing + nightlife + More.</p>
+                <div class="callout"><strong>Basic deposit: $250</strong><br />Living accommodation and flight are not included.</div>
+              </div>
+            </section>
+
+            <section class="section-card package-panel" id="package-tokyo" aria-labelledby="tokyo-title" hidden>
+              <div class="section-inner">
+                <p class="section-kicker">Individual City · Tokyo</p>
+                <h2 class="section-title" id="tokyo-title">🇯🇵 Tokyo</h2>
+                <p class="package-price">Tokyo experience — $800</p>
+                <p class="section-copy">Fashion, entertainment, content creation, networking, transportation, and cultural experiences designed for an individual Tokyo trip.</p>
+                <div class="callout"><strong>Basic deposit: $250</strong><br />Living accommodation and flight are not included.</div>
+              </div>
+            </section>
+
+            <section class="section-card package-panel" id="package-new-york" aria-labelledby="new-york-title">
+              <div class="section-inner">
+                <p class="section-kicker">Azul Arts &amp; Fashion House · New York 2027</p>
+                <h2 class="section-title" id="new-york-title">New York 2027 Experience</h2>
+                <p class="package-price">🗽 Five-day experience · February 10–14, 2027 · New York City</p>
+                <p class="section-copy">A five-day fashion, art, education, networking, and production experience.</p>
+
+                <h3 class="section-title" style="font-size: clamp(1.6rem, 2vw, 2.3rem); margin-top: 30px; margin-bottom: 14px;">The 5-Day Experience</h3>
+                <div class="date-grid">
+                  <article class="offer-card">
+                    <h3>Day 1 — February 10: The Mixer</h3>
+                    <ul>
+                      <li>Networking for models, designers, creatives, artists, and the production team</li>
+                      <li>Introductions and connections</li>
+                      <li>Opening experience</li>
+                      <li>Meet the Azul Arts &amp; Fashion House team</li>
+                    </ul>
                   </article>
-                  <article class="package-city">
-                    <h3>🇮🇹 Milan</h3>
-                    <p><strong>Basic — $800</strong> · <strong>Exclusive — $1,000</strong></p>
-                    <p>Exclusive includes local transportation opportunities by train, bus, and other options, plus additional fashion and networking.</p>
+                  <article class="offer-card">
+                    <h3>Day 2 — February 11: Model Coaching &amp; Ground Rules</h3>
+                    <ul>
+                      <li>Model coaching and runway training</li>
+                      <li>Walk development and stage presence</li>
+                      <li>Professionalism and communication</li>
+                      <li>Production procedures and rehearsal expectations</li>
+                      <li>Q&amp;A</li>
+                    </ul>
                   </article>
-                  <article class="package-city">
-                    <h3>🇫🇷 Paris</h3>
-                    <p><strong>Basic — $800</strong> · <strong>Exclusive — $1,000</strong></p>
-                    <p>Exclusive adds fashion, art, entertainment, networking, and content opportunities.</p>
+                  <article class="offer-card">
+                    <h3>Day 3 — February 12: Fittings, Rehearsal &amp; Photo Shoots</h3>
+                    <ul>
+                      <li>Designer fittings and final garment checks</li>
+                      <li>Runway rehearsals</li>
+                      <li>Model photography</li>
+                      <li>Hair and makeup preparation</li>
+                      <li>Final production coordination</li>
+                    </ul>
                   </article>
-                  <article class="package-city">
-                    <h3>🇯🇵 Tokyo</h3>
-                    <p><strong>Basic — $800</strong> · <strong>Exclusive — $1,000</strong></p>
-                    <p>Exclusive adds transportation, fashion, entertainment, content, and networking opportunities.</p>
+                  <article class="offer-card">
+                    <h3>Day 4 — February 13: Fashion Show</h3>
+                    <ul>
+                      <li>Fashion presentations with designers and models</li>
+                      <li>Hair and makeup</li>
+                      <li>Professional photography and media/creative coverage</li>
+                      <li>Celebrity appearances and front-row seating</li>
+                      <li>Networking and industry exposure</li>
+                    </ul>
                   </article>
-                  <article class="package-city">
-                    <h3>🇺🇸 New York</h3>
-                    <p>Individual opportunities are available through the Five-City Big Bang experience.</p>
+                  <article class="offer-card">
+                    <h3>Day 5 — February 14: Brunch, Workshops &amp; Send-Off</h3>
+                    <ul>
+                      <li>Closing brunch, networking, and reflection</li>
+                      <li>Beginner Crochet Class</li>
+                      <li>Beginner Sewing Class</li>
+                      <li>Final goodbye and send-off</li>
+                    </ul>
                   </article>
                 </div>
-                <div class="callout"><strong>Basic deposit: $250</strong><br /><strong>Exclusive deposit: $300</strong><br />Depending on the city, Basic activities may include fashion events, independent fashion shows, concerts, nightlife, sightseeing, museums, cultural experiences, networking, photography, content creation, music and entertainment, free activities, and Blue Media group experiences.</div>
+
+                <div class="callout">
+                  <strong>⭐ Celebrity Experience</strong><br />
+                  Models who pay $250 or more receive a celebrity meet-and-greet opportunity.
+                </div>
+                <div class="callout">
+                  <strong>⚡ $50 Expedite Fee</strong><br />
+                  Eligible models under 5’8” can pay the expedite fee to skip the waiting list. Includes a small plate of hors d’oeuvres, one adult beverage, and expedited consideration.
+                </div>
+
+                <h3 class="section-title" style="font-size: clamp(1.6rem, 2vw, 2.3rem); margin-top: 34px; margin-bottom: 14px;">🗽 Model Experience — Only $250</h3>
+                <p class="section-copy"><strong>$250 gets you the full five-day Azul Arts &amp; Fashion House experience.</strong> Your experience includes the mixer and networking, model coaching and runway training, designer fittings, rehearsals, professional photo opportunities, fashion show and show day, front-row seating, brunch and workshops, celebrity meet-and-greet experience, and the full five-day program.</p>
+                <div class="callout">
+                  <strong>Payment: $250 total</strong><br />
+                  $125 deposit to reserve your spot; $125 balance due upon arrival.
+                </div>
+
+                <h3 class="section-title" style="font-size: clamp(1.6rem, 2vw, 2.3rem); margin-top: 34px; margin-bottom: 14px;">⭐ The Package Deal</h3>
+                <div class="offer-grid">
+                  <article class="offer-card">
+                    <h3>Don’t Need Housing?</h3>
+                    <p class="section-copy"><strong>$250</strong> — Full five-day experience</p>
+                  </article>
+                  <article class="offer-card">
+                    <h3>Need Housing?</h3>
+                    <ul>
+                      <li><strong>$500</strong> — Shared room plus full five-day experience</li>
+                      <li><strong>$350</strong> — Shared living room plus full five-day experience</li>
+                    </ul>
+                  </article>
+                </div>
+                <p class="section-copy">Model House participants receive the full Azul five-day experience package, including the celebrity meet opportunity.</p>
+                <div class="callout"><strong>One experience. One city. Five days.</strong><br />Azul Arts &amp; Fashion House<br />New York City · February 10–14, 2027<br />Creativity · Community · Opportunity · Impact</div>
               </div>
             </section>
 
@@ -941,7 +1054,7 @@
                 <p class="section-copy"><strong>🌍 ALL 3 COUNTRIES</strong><br />FEB. 17 – MAR. 10<br />SEP. 17 – OCT. 10<br />LONDON 🇬🇧 → MILAN 🇮🇹 → PARIS 🇫🇷</p>
                 <p class="section-copy"><strong>Deposit: $1,000</strong></p>
                 <div class="callout"><strong>What’s included:</strong> planned accommodations, local transportation opportunities, photography, content creation, artist and podcast opportunities, fashion experiences, model opportunities, entertainment, nightlife, art and culture, international networking, music experiences, video opportunities, and collaboration/skit opportunities.</div>
-                <div class="callout"><strong>Exclusive — $1,000:</strong> for people who want more. Opportunities can include additional transportation, Fashion Week activities, fashion and networking, podcast interviews, professional photo shoots, content creation, artist and performance opportunities, a music-video opportunity, model opportunities, designer networking, entertainment, sightseeing, Blue Media media coverage, and international collaborations.</div>
+                <div class="callout"><strong>Exclusive — $3,200:</strong> for people who want more. Opportunities can include additional transportation, Fashion Week activities, fashion and networking, podcast interviews, professional photo shoots, content creation, artist and performance opportunities, a music-video opportunity, model opportunities, designer networking, entertainment, sightseeing, Blue Media media coverage, and international collaborations.</div>
                 <p class="section-copy">For Exclusive artists and creators, opportunities may include podcast interviews, selected performance or fashion-show headlining opportunities, photo shoots, one music-video opportunity, content creation, and international collaborations.</p>
               </div>
             </section>
@@ -950,10 +1063,13 @@
               <div class="section-inner">
                 <p class="section-kicker">Five-City Big Bang</p>
                 <h2 class="section-title" id="five-city-title">Five cities. One global takeover.</h2>
-                <p class="package-price">💥 The Five-City Big Bang — $4,000</p>
+                <p class="package-price">💥 The Five-City Big Bang — $4,500</p>
                 <div class="inline-list" aria-label="Five-City Big Bang destinations"><span class="inline-pill">🇺🇸 New York</span><span class="inline-pill">🇯🇵 Tokyo</span><span class="inline-pill">🇬🇧 London</span><span class="inline-pill">🇫🇷 Paris</span><span class="inline-pill">🇮🇹 Milan</span></div>
                 <p class="section-copy">Choose the February/Fall-Winter or September/Spring-Summer experience where applicable. The package price stays the same.</p>
+                <p class="section-copy"><strong>London:</strong> Feb. 17–24 / Sep. 17–24<br /><strong>Milan:</strong> Feb. 24–Mar. 3 / Sep. 24–30<br /><strong>Paris:</strong> Mar. 3–10 / Oct. 1–8<br /><strong>Route:</strong> London → Milan → Paris</p>
                 <div class="callout"><strong>Deposit and payment schedule:</strong> provided upon registration. Individual New York opportunities are available through this experience. All package prices exclude international flights; each participant is responsible for their own flight.</div>
+                <div class="callout"><strong>Exclusive — $5,000:</strong> for people who want more. Opportunities can include additional transportation, Fashion Week activities, fashion and networking, podcast interviews, professional photo shoots, content creation, artist and performance opportunities, a music-video opportunity, model opportunities, designer networking, entertainment, sightseeing, Blue Media media coverage, and international collaborations.</div>
+                <p class="section-copy">For Exclusive artists and creators, opportunities may include podcast interviews, selected performance or fashion-show headlining opportunities, photo shoots, one music-video opportunity, content creation, and international collaborations.</p>
                 <p class="section-copy">Blue Media can assist with finding flight options and discounted travel opportunities where available. Package details are built around the experience and itinerary you select.</p>
               </div>
             </section>
@@ -971,10 +1087,11 @@
                 <div>
                   <p class="section-copy"><strong>Artists &amp; content creators:</strong> Exclusive is especially designed for artists, musicians, influencers, and content creators. Opportunities may include podcast interviews about your music, brand, career, and story; performance opportunities during Blue Media programming and fashion events; selected fashion-show performance/headlining opportunities; professional photo shoots; one music-video opportunity; content creation; skits and collaborations; and international networking with models, designers, photographers, artists, musicians, influencers, and entertainment professionals.</p>
                   <p class="section-copy"><strong>All package prices exclude international flights.</strong> Blue Media can assist with locating flight options and discounted travel opportunities where available. Flight costs remain the participant’s responsibility.</p>
+                  <p class="section-copy"><strong>Room note:</strong> Basic pricing allows for a regular room, and Exclusive pricing allows for upgrading to a Master Bedroom.</p>
                 </div>
                 <div class="quote-box">
                   <strong>Deposits</strong>
-                  <p class="section-copy">$800 Basic — $250 deposit<br />$1,000 Exclusive — $300 deposit<br />$2,800 Three-City Tour — $1,000 deposit<br />$4,000 Five-City Big Bang — deposit/payment schedule provided upon registration</p>
+                  <p class="section-copy">$800 Basic — $300 deposit<br />$1,000 Exclusive — $400 deposit<br />$2,800 Three-City Tour — $1,000 deposit<br />$4,000 Five-City Big Bang — deposit/payment schedule provided upon registration</p>
                 </div>
               </div>
               <div class="callout travel-notice"><strong>Your season. Your city. Your experience.</strong><br />Choose Winter / February or Spring / September, then choose one city, the Three-City Tour, or the Five-City Big Bang. Everything is built around the experience you select.</div>
@@ -1192,6 +1309,106 @@
           </div>
         </div>
       </section>
+
+      <section class="content-section" id="payment-deadlines">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">Payment Deadlines</p>
+              <h2 class="section-title">IMPORTANT PAYMENT DEADLINES — GLOBAL TAKEOVER TOUR &amp; NYFW</h2>
+              <p class="section-copy">To secure your participation in all upcoming Blue Media Global Takeover activities, including:</p>
+              <p class="section-copy">🇺🇸 New York Fashion Week<br />🇬🇧 London<br />🇫🇷 Paris<br />🇮🇹 Milan<br />🌍 Three-City Tour<br />🌎 Five Big City Tour<br />✈️ All additional overseas/global tour activities</p>
+              <p class="section-copy"><strong>💰 DEPOSIT DEADLINE: DECEMBER 5, 2026</strong><br />All deposits must be paid no later than December 5th.</p>
+              <p class="section-copy">Any participant who has not submitted their required deposit by December 5th will no longer qualify for the deposit pricing. After the deadline, the full payment amount will be required to participate.</p>
+              <p class="section-copy"><strong>💳 FINAL PAYMENT DEADLINE: JANUARY 16, 2027</strong><br />All remaining balances must be paid in full by January 16th, 2027 — NO EXCEPTIONS.</p>
+              <p class="section-copy">After January 16th, regular payments will no longer be accepted. Any late enrollment or late payment accepted after the final deadline may be subject to double the original amount.</p>
+              <p class="section-copy">Please make sure your deposit is submitted by December 5th and your remaining balance is completely paid by January 16th to secure your spot.</p>
+              <p class="section-copy">Once these deadlines pass, availability and pricing are no longer guaranteed.</p>
+              <p class="section-copy"><strong>🌍 BLUE MEDIA — GLOBAL TAKEOVER</strong><br />Yesterday’s Price Is Not Today’s Price</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="global-worldwide-tour">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">Travel Information</p>
+              <h2 class="section-title">GLOBAL WORLDWIDE TOUR</h2>
+              <p class="section-copy"><strong>Travel, Flights &amp; Passport Information</strong></p>
+              <p class="section-copy">Blue Media Enterprises is committed to helping every participant have a smooth and organized international travel experience. However, participants are responsible for securing their own international airfare and ensuring that they have valid travel documents, including a valid passport.</p>
+
+              <h3 class="section-title" style="font-size: clamp(1.6rem, 2vw, 2.3rem); margin-top: 24px; margin-bottom: 14px;">INTERNATIONAL FLIGHTS</h3>
+              <p class="section-copy">Blue Media Enterprises does not cover or purchase international flights on behalf of participants. Airfare is separate from the Global Worldwide Tour participation fee and must be arranged and paid for by each traveler.</p>
+              <p class="section-copy">Flight prices vary depending on the destination, airline, travel dates, availability, and how far in advance the ticket is purchased. As a general example, round-trip flights from the United States to Europe may sometimes be found for approximately $380–$500 round trip when booked early, with other fares commonly ranging around $500–$700 or more, depending on the dates and market conditions.</p>
+              <p class="section-copy">Because airfare prices change frequently, participants are encouraged to book as early as possible to take advantage of better rates.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="passport-travel-documents">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">Travel Documents</p>
+              <h2 class="section-title">PASSPORT &amp; TRAVEL DOCUMENTS</h2>
+              <p class="section-copy">Each participant is responsible for obtaining and maintaining their own passport and any other travel documents required for international travel.</p>
+              <p class="section-copy">Blue Media Enterprises is not responsible for obtaining, renewing, replacing, or paying for a participant’s passport.</p>
+              <p class="section-copy">However, our team can assist and point participants in the right direction regarding the passport application or renewal process and provide general guidance on where to obtain the appropriate information and forms.</p>
+              <p class="section-copy">Participants should make sure their passport is valid for the required period before making international travel arrangements.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="tour-fee-covers">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">Global Takeover</p>
+              <h2 class="section-title">WHAT THE TOUR FEE COVERS</h2>
+              <p class="section-copy">The Global Worldwide Tour offers Basic and Exclusive participation options, allowing participants to choose the level of accommodations, transportation, access, and content opportunities that best fit their travel experience.</p>
+
+              <h3 class="section-title" style="font-size: clamp(1.6rem, 2vw, 2.3rem); margin-top: 24px; margin-bottom: 14px;">BASIC TOUR PACKAGE</h3>
+              <p class="section-copy">The Basic Package provides participants with the opportunity to fully experience the Global Worldwide Tour and participate in the scheduled activities, experiences, networking opportunities, and entertainment.</p>
+              <p class="section-copy">The Basic Package includes:</p>
+              <ul class="feature-list" style="margin-bottom: 18px;">
+                <li class="feature-item">Regular bedroom accommodations</li>
+                <li class="feature-item">Shared restroom/bathroom accommodations</li>
+                <li class="feature-item">Access to scheduled tour activities and experiences</li>
+                <li class="feature-item">Participation in the group tour experience</li>
+                <li class="feature-item">Attendance at organized fashion, entertainment, networking, nightlife, and cultural activities included in the tour</li>
+                <li class="feature-item">Transportation primarily through public transportation and/or Uber, depending on the location and activity</li>
+                <li class="feature-item">Professional photography opportunities, based on the tour schedule and available photo sessions</li>
+                <li class="feature-item">Content creation opportunities, with more limited on-camera/content-production opportunities compared with the Exclusive Package</li>
+                <li class="feature-item">Access to the overall Global Worldwide Tour experience and group activities</li>
+                <li class="feature-item">Additional tour-related activities outlined in the participant’s selected package</li>
+              </ul>
+              <p class="section-copy">The Basic Package is designed for participants who want to travel with the group, experience the destination, attend the activities, network, and be part of the Global Worldwide Tour at an accessible level.</p>
+
+              <h3 class="section-title" style="font-size: clamp(1.6rem, 2vw, 2.3rem); margin-top: 30px; margin-bottom: 14px;">EXCLUSIVE TOUR PACKAGE</h3>
+              <p class="section-copy">The Exclusive Package provides an enhanced and more personalized Global Worldwide Tour experience, with upgraded accommodations, transportation, VIP access, and increased opportunities for photography and content creation.</p>
+              <p class="section-copy">The Exclusive Package includes:</p>
+              <ul class="feature-list" style="margin-bottom: 18px;">
+                <li class="feature-item">Master bedroom accommodations</li>
+                <li class="feature-item">Private restroom/bathroom</li>
+                <li class="feature-item">Access to all scheduled tour activities and experiences</li>
+                <li class="feature-item">Participation in the full Global Worldwide Tour experience</li>
+                <li class="feature-item">Priority VIP transportation/rides to select locations and activities, when available and applicable</li>
+                <li class="feature-item">Enhanced transportation arrangements compared with the Basic Package</li>
+                <li class="feature-item">Increased opportunities for professional photo shoots</li>
+                <li class="feature-item">Increased on-camera content creation opportunities</li>
+                <li class="feature-item">Additional media and content opportunities throughout the tour</li>
+                <li class="feature-item">Fashion, entertainment, networking, nightlife, and cultural experiences included in the tour</li>
+                <li class="feature-item">Additional tour-related activities outlined in the participant’s selected package</li>
+              </ul>
+              <p class="section-copy">The Exclusive Package is designed for participants who want a more private, comfortable, VIP, and content-focused experience while traveling with Blue Media Enterprises.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -1210,13 +1427,27 @@
 
     <script>
       (function () {
-        const packageSelect = document.getElementById('package-select');
+        const packageButtons = Array.from(document.querySelectorAll('.package-option'));
         const packagePanels = Array.from(document.querySelectorAll('.package-panel'));
 
-        if (packageSelect) {
-          packageSelect.addEventListener('change', function () {
-            packagePanels.forEach(function (panel) {
-              panel.hidden = panel.id !== 'package-' + packageSelect.value;
+        const syncPackagePanel = function (selectedPackage) {
+          packagePanels.forEach(function (panel) {
+            panel.hidden = panel.id !== 'package-' + selectedPackage;
+          });
+
+          packageButtons.forEach(function (button) {
+            const isActive = button.dataset.package === selectedPackage;
+            button.classList.toggle('active', isActive);
+            button.setAttribute('aria-pressed', String(isActive));
+          });
+        };
+
+        if (packageButtons.length) {
+          syncPackagePanel('new-york');
+
+          packageButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+              syncPackagePanel(button.dataset.package);
             });
           });
         }
