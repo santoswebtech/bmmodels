@@ -574,7 +574,7 @@
 
       .pricing-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 16px;
       }
 
@@ -637,6 +637,39 @@
         height: 6px;
         border-radius: 50%;
         background: var(--accent);
+      }
+
+      .tier-details {
+        margin-top: 20px;
+        border-top: 1px solid var(--line);
+        padding-top: 16px;
+      }
+
+      .tier-details summary {
+        color: var(--accent);
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .tier-details-content {
+        padding-top: 14px;
+      }
+
+      .tier-details-content h4 {
+        margin: 18px 0 8px;
+        font-size: 0.92rem;
+      }
+
+      .tier-details-content h4:first-child {
+        margin-top: 0;
+      }
+
+      .tier-details-content ul {
+        margin: 0 0 14px;
+      }
+
+      .service-section {
+        scroll-margin-top: 24px;
       }
 
       .billing-note {
@@ -1252,63 +1285,203 @@
         <div class="container">
           <div class="section-card">
             <div class="section-inner">
-              <p class="section-kicker">Pricing</p>
-              <h2 class="section-title">One-year, non-exclusive management and marketing support.</h2>
+              <p class="section-kicker">Talent Management</p>
+              <h2 class="section-title">Three levels of one-year, non-exclusive management.</h2>
               <p class="section-copy">
-                Every payment option covers one full year of non-exclusive talent management and marketing services,
-                including the career-development and media support outlined in this overview.
+                Every package includes a 12-month, non-exclusive Talent Management Agreement. Choose the level of
+                access, career guidance, and opportunity support that fits your goals.
               </p>
+              <p><a class="secondary-btn" href="#individual-services">Browse individual services</a></p>
 
               <div class="pricing-grid">
-                <div class="price-card featured">
-                  <h3>Priority / Platinum</h3>
-                  <div class="amount">$650</div>
-                  <div class="meta">Flat fee<br />2 payments: $325 upfront + $325 on the balance date</div>
+                <div class="price-card">
+                  <h3>Tier 1 — Executive Priority</h3>
+                  <div class="amount">$500</div>
+                  <div class="meta">One-time upfront payment<br />12 months · Non-exclusive</div>
+                  <p class="section-copy">Our most exclusive package, with direct CEO access, personalized opportunity searches, and priority career development.</p>
                   <ul>
-                    <li>Free basic website creation &amp; setup</li>
-                    <li>Includes 1 year of management + marketing</li>
+                    <li>Full $500 payment is required to activate Executive Priority benefits</li>
+                    <li>Direct access and weekly one-on-one career consultations</li>
+                    <li>Professional branding package and personalized career plan</li>
                   </ul>
+                  <details class="tier-details">
+                    <summary>Explore included services</summary>
+                    <div class="tier-details-content">
+                      <h4>Direct CEO and talent manager access</h4>
+                      <ul>
+                        <li>Unlimited phone consultation requests throughout the week, subject to availability</li>
+                        <li>Direct text communication and priority responses to career-related questions</li>
+                        <li>Personalized career guidance, strategic planning, and weekly one-on-one consultations</li>
+                        <li>Priority consultation scheduling and assistance evaluating paid opportunities</li>
+                      </ul>
+                      <h4>Personalized paid opportunity searches</h4>
+                      <ul>
+                        <li>Structured job-search consultations with the CEO using Blue Media's professional email network, casting resources, and available opportunities</li>
+                        <li>Review up to five selected opportunities per search session, including pay, location, dates, requirements, and deadlines</li>
+                        <li>Work together to identify 3–5 suitable opportunities to pursue; ongoing search assistance during the management term</li>
+                        <li>Assistance pursuing suitable opportunities and communicating with relevant contacts</li>
+                        <li>Opportunity identification and submissions do not guarantee selection, employment, or payment</li>
+                      </ul>
+                      <h4>Professional branding package</h4>
+                      <ul>
+                        <li>Professional press kit, comp card, career pitch deck, and customized business blueprint</li>
+                        <li>Personal professional website, digital portfolio organization, and professional biography</li>
+                        <li>Unlimited comp card revisions and updated digital versions during the contract</li>
+                        <li>Career positioning and brand identity consultation</li>
+                      </ul>
+                      <h4>Career development and priority benefits</h4>
+                      <ul>
+                        <li>90-day career action plan and monthly career progress reviews</li>
+                        <li>Priority casting notifications when suitable opportunities are available</li>
+                        <li>Professional email pitching assistance, social media branding review, and digital portfolio updates</li>
+                        <li>Interview and audition coaching, booking preparation, and priority consideration for suitable Blue Media productions</li>
+                        <li>Photography, videography, runway, walking class, portfolio, casting, audition, submission, and industry networking guidance</li>
+                        <li>Commercial, editorial, runway, acting, and brand ambassador opportunity searches</li>
+                      </ul>
+                    </div>
+                  </details>
                 </div>
                 <div class="price-card">
-                  <h3>Level 2</h3>
-                  <div class="amount">$150</div>
-                  <div class="meta">Per month<br />$250 deposit required + 4 monthly payments · $850 total</div>
+                  <h3>Tier 2 — Advanced</h3>
+                  <div class="amount">$750</div>
+                  <div class="meta">$150 down + 4 monthly payments of $150<br />12 months · Non-exclusive</div>
+                  <p class="section-copy">Comprehensive management, branding, and opportunity assistance with scheduled guidance through standard management channels.</p>
                   <ul>
-                    <li>Free basic website creation &amp; setup</li>
-                    <li>Includes 1 year of management + marketing</li>
+                    <li>Professional press kit, comp card, pitch deck, and personal website</li>
+                    <li>Manager-reviewed opportunities and submission assistance</li>
+                    <li>No unlimited direct CEO access or live CEO job-search sessions</li>
                   </ul>
+                  <details class="tier-details">
+                    <summary>Explore included services</summary>
+                    <div class="tier-details-content">
+                      <h4>Professional branding</h4>
+                      <ul>
+                        <li>Professional press kit and comp card, with digital comp card updates when necessary</li>
+                        <li>Professional pitch deck, customized career blueprint, and personal website</li>
+                        <li>Professional biography assistance and portfolio development guidance</li>
+                      </ul>
+                      <h4>Paid opportunity assistance</h4>
+                      <ul>
+                        <li>Access to suitable opportunities identified through Blue Media's professional resources</li>
+                        <li>Talent manager independently reviews and filters opportunities based on qualifications and experience</li>
+                        <li>Professional submission assistance, casting and booking notifications, and follow-up assistance when appropriate</li>
+                      </ul>
+                      <h4>Career development</h4>
+                      <ul>
+                        <li>Scheduled career consultations, monthly progress discussions, and professional branding guidance</li>
+                        <li>Photography and videography referrals, runway and walking class referrals, and casting preparation</li>
+                        <li>Networking opportunity notifications and professional portfolio guidance</li>
+                      </ul>
+                      <h4>Service limitations</h4>
+                      <ul>
+                        <li>No unlimited CEO phone consultations or live, personalized CEO job-search sessions</li>
+                        <li>No direct access to the CEO's complete opportunity database or live opportunity-selection meetings</li>
+                        <li>No priority over Tier 1 members; consultations and communication use scheduled, standard management channels</li>
+                      </ul>
+                    </div>
+                  </details>
                 </div>
                 <div class="price-card">
-                  <h3>Level 3</h3>
-                  <div class="amount">$100</div>
-                  <div class="meta">Per month<br />$250 deposit required + 6 monthly payments · $850 total</div>
+                  <h3>Tier 3 — Essential</h3>
+                  <div class="amount">$700</div>
+                  <div class="meta">$100 down + 6 monthly payments of $100<br />12 months · Non-exclusive</div>
+                  <p class="section-copy">An entry-level package for emerging talent seeking professional foundations and standard opportunity assistance.</p>
                   <ul>
-                    <li>Includes 1 year of management + marketing</li>
+                    <li>Introductory press kit, standard digital comp card, and basic career blueprint</li>
+                    <li>Relevant opportunities, suitable submission assistance, and booking guidance</li>
+                    <li>Scheduled management updates and basic career planning</li>
                   </ul>
-                </div>
-                <div class="price-card">
-                  <h3>Level 4</h3>
-                  <div class="amount">$50</div>
-                  <div class="meta">Per month<br />12 monthly payments · $600 total</div>
-                  <ul>
-                    <li>$100 website creation down payment</li>
-                    <li>Includes 1 year of management + marketing</li>
-                  </ul>
+                  <details class="tier-details">
+                    <summary>Explore included services</summary>
+                    <div class="tier-details-content">
+                      <h4>Basic professional branding</h4>
+                      <ul>
+                        <li>Professional introductory press kit, standard digital comp card, and basic professional biography</li>
+                        <li>Career development blueprint, basic digital portfolio guidance, and professional website setup</li>
+                        <li>Guidance presenting yourself professionally to casting directors and brands</li>
+                      </ul>
+                      <h4>Standard opportunity assistance</h4>
+                      <ul>
+                        <li>Relevant opportunities identified by Blue Media and standard consideration for castings and projects</li>
+                        <li>Assistance with suitable submissions and notifications about available opportunities</li>
+                        <li>Basic booking preparation and general information about commercial, editorial, runway, acting, and promotional opportunities</li>
+                      </ul>
+                      <h4>Basic career development</h4>
+                      <ul>
+                        <li>Initial career assessment, basic career planning, and scheduled management updates</li>
+                        <li>Photography and videography referrals, runway and walking class referrals, and portfolio recommendations</li>
+                        <li>General career development resources</li>
+                      </ul>
+                      <h4>Service limitations</h4>
+                      <ul>
+                        <li>No unlimited CEO access, direct CEO job-search sessions, or personalized opportunity-selection meetings</li>
+                        <li>No priority casting placement or Executive Priority consultations</li>
+                        <li>Does not include the consultation frequency offered with Advanced Management</li>
+                      </ul>
+                    </div>
+                  </details>
                 </div>
               </div>
 
               <div class="billing-note">
-                <strong>Payment due dates:</strong> All payments are due on the 1st or 15th of the last month.
+                <strong>Executive Priority activation:</strong> The full $500 payment is required before priority services, direct CEO job-search consultations, and priority scheduling begin. If you pay $250 initially and the remaining $250 one or two weeks later, Executive Priority benefits begin only after the balance is paid.
               </div>
-
               <div class="billing-note">
-                <strong>Management percentage:</strong> 15% management percentage applies only to Blue Media-booked gigs once the client has earned back the amount paid for management services. Gigs booked independently remain 100% the client’s money.
+                <strong>Management commission:</strong> The 15% management percentage applies only to gigs booked through Blue Media after the client has earned back the amount paid for management services. Gigs booked independently remain 100% the client's money.
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div class="payment-methods" aria-label="Accepted payment methods">
-                <span class="payment-pill">Cash App</span>
-                <span class="payment-pill">Apple Pay</span>
-                <span class="payment-pill">Zelle</span>
+      <section class="content-section service-section" id="individual-services">
+        <div class="container">
+          <div class="section-card">
+            <div class="section-inner">
+              <p class="section-kicker">No Management Contract Required</p>
+              <h2 class="section-title">Professional services, available individually.</h2>
+              <p class="section-copy">
+                Not ready to enroll in management? Purchase an individual service without a management contract.
+              </p>
+              <div class="offer-grid">
+                <div class="offer-card">
+                  <h3>Professional Press Kit Creation</h3>
+                  <p class="section-copy">$100–$300, based on the level of detail, number of pages, content, and design requirements.</p>
+                  <ul>
+                    <li>Professional biography, portfolio, measurements, experience, and achievements</li>
+                    <li>Professional photography placement, branding, and layout</li>
+                    <li>Digital PDF delivery</li>
+                  </ul>
+                </div>
+                <div class="offer-card">
+                  <h3>Business Blueprint &amp; Career Plan</h3>
+                  <p class="section-copy">$150</p>
+                  <ul>
+                    <li>Career assessment and professional goals</li>
+                    <li>Branding and career development strategy</li>
+                    <li>Marketing recommendations and personalized action plan</li>
+                  </ul>
+                </div>
+                <div class="offer-card">
+                  <h3>Professional Website Development</h3>
+                  <p class="section-copy">Starting at $350</p>
+                  <ul>
+                    <li>For models, actors, designers, entrepreneurs, artists, and businesses</li>
+                    <li>Basic website design, digital portfolio, biography, and contact information</li>
+                    <li>Social media integration and mobile-friendly design</li>
+                    <li>Additional pages, advanced functionality, hosting, domain fees, and maintenance may cost extra</li>
+                  </ul>
+                </div>
+                <div class="offer-card">
+                  <h3>Independent Paid Opportunity Services</h3>
+                  <p class="section-copy"><strong>40% commission on confirmed paid bookings</strong></p>
+                  <ul>
+                    <li>No management membership required; Blue Media assists in sourcing suitable paid opportunities</li>
+                    <li>Blue Media receives 40% of compensation for jobs successfully secured through its direct efforts; the client retains 60%</li>
+                    <li>Requires a separate booking agreement and signed confidentiality and non-disclosure agreement (NDA)</li>
+                    <li>Commission is subject to the written agreement and applicable law</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -1361,4 +1534,3 @@
     </script>
   </body>
 </html>
-
